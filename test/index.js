@@ -1,0 +1,54 @@
+require('harmonize')(['harmony-generators']);
+
+var metalsmith = require('metalsmith'),
+    fs = require('fs'),
+    path = require('path'),
+    _ = require('underscore'),
+    chai = require('chai'),
+    jsonfile = require('jsonfile'),
+    async = require('async'),
+    formatcheck = require('..'),
+    formatcheckDefaults = require('../lib/formatcheckDefaults.js');
+
+chai.use(require('chai-fs'));
+var assert = chai.assert;
+
+function reset_files(test_defaults) {
+  try {
+    fs.unlinkSync(test_defaults.checkFile);
+  } catch (err) {};
+  try {
+    fs.unlinkSync(test_defaults.failFile);
+  } catch (err) {};
+  assert.notPathExists(test_defaults.checkFile);
+  assert.notPathExists(test_defaults.failFile);
+}
+
+working = ['working.html']
+broken = ['broken/1.html']
+
+describe('metalsmith-formatcheck', function() {
+  it('should identify all broken pages with the default parameters', function(done) {
+    var src = 'test/fixtures/errors';
+    var defaults = _.clone(formatcheckDefaults.defaults);
+    var test_defaults = formatcheckDefaults.processConfig(path.join(src, 'src'), defaults);
+    reset_files(test_defaults);
+
+    metalsmith(src)
+      .use(formatcheck(defaults))
+      .build(function (err) {
+        if (err) {
+          return done(err);
+        }
+        assert.pathExists(test_defaults.checkFile);
+        var checked = jsonfile.readFileSync(test_defaults.checkFile);
+        assert.deepEqual(_.keys(checked).sort(), working.sort());
+        
+        assert.pathExists(test_defaults.failFile);
+        var failures = jsonfile.readFileSync(test_defaults.failFile);
+        assert.deepEqual(_.keys(failures).sort(), broken.sort());
+
+        done();
+      });
+  });
+});
