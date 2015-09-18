@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-formatcheck",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Metalsmith plugin for HTML5 format checking",
   "readmeFilename": "README.md",
   "bugs": {
