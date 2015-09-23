@@ -1,10 +1,8 @@
 # metalsmith-formatcheck
 
-[metalsmith]: http://metalsmith.io
-[html-validator]: https://www.npmjs.com/package/html-validator
-
-This is a plugin for [Metalsmith][] that checks HTML pages for HTML5 format
-compliance via the [html-validator][] module.
+This is a plugin for [Metalsmith](http://metalsmith.io) that checks HTML
+pages for HTML5 format compliance via the
+[html-validator](https://www.npmjs.com/package/html-validator) module.
 
 ## Installation
 
@@ -26,7 +24,7 @@ If using the CLI for Metalsmith, metalsmith-formatcheck can be used like any oth
 }
 ```
 
-For metalsmiths JavaScript API, metalsmith-formatcheck can be used like any other plugin, by attaching it to the function invocation chain on the metalscript object:
+For Metalsmith's JavaScript API, metalsmith-formatcheck can be used like any other plugin, by attaching it to the function invocation chain on the metalscript object:
 
 ```js
 var formatcheck = require('metalsmith-formatcheck');
@@ -44,7 +42,6 @@ requires network access**.
 
 metalsmith-formatcheck does not require any options, but the following options
 are available:
-
 
 #### `verbose` (optional)
 
