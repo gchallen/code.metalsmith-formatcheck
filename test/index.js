@@ -48,11 +48,11 @@ describe('metalsmith-formatcheck', function() {
         }
         assert.pathExists(test_defaults.checkFile);
         var checked = jsonfile.readFileSync(test_defaults.checkFile);
-        assert.deepEqual(_.keys(checked).sort(), working.sort());
+        powerAssert.deepEqual(_.keys(checked).sort(), working.sort());
         
         assert.pathExists(test_defaults.failFile);
         var failures = jsonfile.readFileSync(test_defaults.failFile);
-        assert.deepEqual(_.keys(failures).sort(), broken.sort());
+        powerAssert.deepEqual(_.keys(failures).sort(), broken.sort());
 
         done();
       });
@@ -71,11 +71,11 @@ describe('metalsmith-formatcheck', function() {
         }
         assert.pathExists(test_defaults.checkFile);
         var checked = jsonfile.readFileSync(test_defaults.checkFile);
-        assert.deepEqual(_.keys(checked).sort(), working.sort());
+        powerAssert.deepEqual(_.keys(checked).sort(), working.sort());
         
         assert.pathExists(test_defaults.failFile);
         var failures = jsonfile.readFileSync(test_defaults.failFile);
-        assert.deepEqual(_.keys(failures).sort(), warning.sort());
+        powerAssert.deepEqual(_.keys(failures).sort(), warning.sort());
 
         done();
       });
@@ -95,11 +95,11 @@ describe('metalsmith-formatcheck', function() {
         }
         assert.pathExists(test_defaults.checkFile);
         var checked = jsonfile.readFileSync(test_defaults.checkFile);
-        assert.deepEqual(_.keys(checked).sort(), working.sort());
+        powerAssert.deepEqual(_.keys(checked).sort(), working.sort());
         
         assert.pathExists(test_defaults.failFile);
         var failures = jsonfile.readFileSync(test_defaults.failFile);
-        assert.deepEqual(_.keys(failures).sort(), warning.sort());
+        powerAssert.deepEqual(_.keys(failures).sort(), warning.sort());
 
         done();
       });
@@ -119,11 +119,11 @@ describe('metalsmith-formatcheck', function() {
         }
         assert.pathExists(test_defaults.checkFile);
         var checked = jsonfile.readFileSync(test_defaults.checkFile);
-        assert.deepEqual(_.keys(checked).sort(), working.sort());
+        powerAssert.deepEqual(_.keys(checked).sort(), working.sort());
         
         assert.pathExists(test_defaults.failFile);
         var failures = jsonfile.readFileSync(test_defaults.failFile);
-        assert.deepEqual(_.keys(failures).sort(), broken.sort());
+        powerAssert.deepEqual(_.keys(failures).sort(), broken.sort());
 
         check_files(files, defaults);
         done();
@@ -146,11 +146,11 @@ describe('metalsmith-formatcheck', function() {
               }
               assert.pathExists(test_defaults.checkFile);
               check = jsonfile.readFileSync(test_defaults.checkFile);
-              assert.deepEqual(_.keys(check).sort(), working.sort());
+              powerAssert.deepEqual(_.keys(check).sort(), working.sort());
 
               assert.pathExists(test_defaults.failFile);
               var failures = jsonfile.readFileSync(test_defaults.failFile);
-              assert.deepEqual(_.keys(failures).sort(), broken.sort());
+              powerAssert.deepEqual(_.keys(failures).sort(), broken.sort());
 
               callback();
             });
@@ -164,12 +164,12 @@ describe('metalsmith-formatcheck', function() {
               }
               assert.pathExists(test_defaults.checkFile);
               var second_check = jsonfile.readFileSync(test_defaults.checkFile);
-              assert.deepEqual(_.keys(check).sort(), working.sort());
-              assert.deepEqual(second_check, check);
+              powerAssert.deepEqual(_.keys(check).sort(), working.sort());
+              powerAssert.deepEqual(second_check, check);
 
               assert.pathExists(test_defaults.failFile);
               var failures = jsonfile.readFileSync(test_defaults.failFile);
-              assert.deepEqual(_.keys(failures).sort(), broken.sort());
+              powerAssert.deepEqual(_.keys(failures).sort(), broken.sort());
 
               done();
             });
