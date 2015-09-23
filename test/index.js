@@ -7,6 +7,7 @@ var metalsmith = require('metalsmith'),
     chai = require('chai'),
     jsonfile = require('jsonfile'),
     async = require('async'),
+    powerAssert = require('power-assert'),
     formatcheck = require('..'),
     formatcheckDefaults = require('../lib/formatcheckDefaults.js');
 
