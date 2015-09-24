@@ -49,6 +49,13 @@ are available:
 
 If set a message will be printed if files generate warnings or errors.
 
+#### `checkedPart` (optional)
+
+(default: `*`)
+
+`jQuery` filter identifying the part of the HTML document to check. Useful to
+ignore headers and footers that might contain irrelevant changes.
+
 #### `failWithoutNetwork` (optional)
 
 (default : *true*)
