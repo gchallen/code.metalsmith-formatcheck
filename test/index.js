@@ -8,8 +8,7 @@ var metalsmith = require('metalsmith'),
     jsonfile = require('jsonfile'),
     async = require('async'),
     powerAssert = require('power-assert'),
-    formatcheck = require('..'),
-    formatcheckDefaults = require('../lib/formatcheckDefaults.js');
+    formatcheck = require('..');
 
 chai.use(require('chai-fs'));
 var assert = chai.assert;
@@ -37,8 +36,8 @@ warning = ['warning/1.html']
 describe('metalsmith-formatcheck', function() {
   it('should identify errors with the default parameters', function(done) {
     var src = 'test/fixtures/errors';
-    var defaults = _.clone(formatcheckDefaults.defaults);
-    var test_defaults = formatcheckDefaults.processConfig(defaults, path.join(src, 'src'));
+    var defaults = _.clone(formatcheck.defaults);
+    var test_defaults = formatcheck.processConfig(defaults, path.join(src, 'src'));
     reset_files(test_defaults);
 
     metalsmith(src)
@@ -60,8 +59,8 @@ describe('metalsmith-formatcheck', function() {
   });
   it('should identify warnings with the default parameters', function(done) {
     var src = 'test/fixtures/warnings';
-    var defaults = _.clone(formatcheckDefaults.defaults);
-    var test_defaults = formatcheckDefaults.processConfig(defaults, path.join(src, 'src'));
+    var defaults = _.clone(formatcheck.defaults);
+    var test_defaults = formatcheck.processConfig(defaults, path.join(src, 'src'));
     reset_files(test_defaults);
 
     metalsmith(src)
@@ -83,9 +82,9 @@ describe('metalsmith-formatcheck', function() {
   });
   it('should fail warnings when asked to', function(done) {
     var src = 'test/fixtures/warnings';
-    var defaults = _.clone(formatcheckDefaults.defaults);
+    var defaults = _.clone(formatcheck.defaults);
     defaults.failWarnings = true;
-    var test_defaults = formatcheckDefaults.processConfig(defaults, path.join(src, 'src'));
+    var test_defaults = formatcheck.processConfig(defaults, path.join(src, 'src'));
     reset_files(test_defaults);
 
     metalsmith(src)
@@ -107,9 +106,9 @@ describe('metalsmith-formatcheck', function() {
   });
   it('should not fail when encountering broken pages and asked not to', function(done) {
     var src = 'test/fixtures/errors';
-    var defaults = _.clone(formatcheckDefaults.defaults);
+    var defaults = _.clone(formatcheck.defaults);
     defaults.failErrors = false;
-    var test_defaults = formatcheckDefaults.processConfig(defaults, path.join(src, 'src'));
+    var test_defaults = formatcheck.processConfig(defaults, path.join(src, 'src'));
     reset_files(test_defaults);
 
     metalsmith(src)
@@ -132,8 +131,8 @@ describe('metalsmith-formatcheck', function() {
   });
   it('should cache format checks when told to', function(done) {
     var src = 'test/fixtures/errors';
-    var defaults = _.clone(formatcheckDefaults.defaults);
-    var test_defaults = formatcheckDefaults.processConfig(defaults, path.join(src, 'src'));
+    var defaults = _.clone(formatcheck.defaults);
+    var test_defaults = formatcheck.processConfig(defaults, path.join(src, 'src'));
     reset_files(test_defaults);
     
     var check;
