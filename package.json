@@ -1,15 +1,15 @@
 {
   "name": "metalsmith-formatcheck",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Metalsmith plugin for HTML5 format checking",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://gitlab.com/blue-systems-group/code.metalsmith-formatcheck/issues"
+    "url": "https://github.com/gchallen/code.metalsmith-formatcheck/issues"
   },
-  "homepage": "https://gitlab.com/blue-systems-group/code.metalsmith-formatcheck",
+  "homepage": "https://github.com/gchallen/code.metalsmith-formatcheck",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:blue-systems-group/code.metalsmith-formatcheck.git"
+    "url": "git@github.com:gchallen/code.metalsmith-formatcheck.git"
   },
   "main": "lib/index.js",
   "scripts": {
