@@ -98,3 +98,7 @@ the build directory.
 
 Path relative to the metalsmith source directory to a JSON file where link
 failures are recorded. This will be removed from the build directory.
+
+#### Ignoring Files
+
+Any files with `checkFormat` set to false will be ignored.
